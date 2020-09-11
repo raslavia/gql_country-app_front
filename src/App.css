@@ -1,0 +1,29 @@
+.App {
+  text-align: center;
+}
+body {
+  margin: auto 0;
+  padding: 20px;
+}
+* {
+  box-sizing: border-box;
+}
+a {
+  text-decoration: none;
+  color: black;
+}
+button {
+  cursor: pointer;
+  outline: none;
+  border: none;
+}
+p {
+  margin: 0;
+}
+.logo {
+  height: 70px;
+  width: auto;
+}
+li {
+  list-style: none;
+}

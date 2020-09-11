@@ -1,1 +1,1 @@
-# gql_country-app_front
+App using react(+hooks), useContext, @apollo/client, typescript.
