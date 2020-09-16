@@ -19,6 +19,10 @@ const PostsPage: React.FC = () => {
   const { user } = useContext(AuthContext);
 
   const { loading, error, data } = useQuery<PostsArrInterface>(GET_POSTS);
+  //add fetchPolicy for checking network not cache
+  // const { loading, error, data } = useQuery<PostsArrInterface>(GET_POSTS, {
+  //   fetchPolicy: "network-first",
+  // });
 
   return (
     <div>

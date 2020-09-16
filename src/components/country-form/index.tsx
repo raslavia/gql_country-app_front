@@ -2,7 +2,14 @@ import React, { useState } from "react";
 import { useHistory } from "react-router-dom";
 import { useMutation } from "@apollo/client";
 
-import { Container, Title, FormButton, SelectCountry, Form , Input} from "./styles";
+import {
+  Container,
+  Title,
+  FormButton,
+  SelectCountry,
+  Form,
+  Input,
+} from "./styles";
 
 import { CREATE_COUNRTY } from "./gql";
 
@@ -24,10 +31,12 @@ const CountryForm = () => {
 
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const { value, name } = event.target;
-    setCountry({ ...country, [name]: value });
+    setCountry(prev => {
+      return { ...prev, [name]: value };
+    });
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = (e: React.FormEvent): void => {
     e.preventDefault();
     createUserForm();
   };
@@ -93,7 +102,6 @@ const CountryForm = () => {
 
         <FormButton type='submit'>Submit</FormButton>
       </Form>
-      
     </Container>
   );
 };

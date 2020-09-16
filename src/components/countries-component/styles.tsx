@@ -10,7 +10,7 @@ export const CountriesContainer = styled.div`
 `;
 
 export const CountryDiv = styled.div`
-  width: 100px;
+  width: 150px;
   padding-top: 20px;
 `;
 

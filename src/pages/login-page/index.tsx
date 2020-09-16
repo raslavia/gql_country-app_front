@@ -3,9 +3,10 @@ import { useMutation } from "@apollo/client";
 import { useHistory } from "react-router-dom";
 
 import { LOGIN } from "./gql";
-import { UserCreds, Variables } from "./interface";
-
+import { UserCreds } from "./interface";
 import { AuthContext } from "../../context";
+
+import { UserType } from "../home-page/interface";
 
 import {
   Container,
@@ -16,16 +17,15 @@ import {
 } from "../../components/country-form/styles";
 
 const LoginPage = () => {
-  const context = useContext(AuthContext);
+  const context: UserType = useContext(AuthContext);
   const history = useHistory();
 
   const [creds, setCreds] = useState<UserCreds>({ username: "", password: "" });
   const { password, username } = creds;
 
-  const [login, { loading, error }] = useMutation<Variables>(LOGIN, {
+  const [login, { loading, error }] = useMutation(LOGIN, {
     onCompleted: data => {
       context.login(data.login);
-      console.log("data login", data.login);
       history.push("/posts");
     },
     variables: { username, password },

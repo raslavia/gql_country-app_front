@@ -3,7 +3,7 @@ import { useMutation } from "@apollo/client";
 import { useHistory } from "react-router-dom";
 
 import { REGISTER } from "./gql";
-import { UserCreds, Variables } from "./interface";
+import { UserCreds } from "./interface";
 
 import { AuthContext } from "../../context";
 
@@ -28,7 +28,7 @@ const RegisterPage = () => {
   });
   const { password, username, confirmPassword, age, email } = creds;
 
-  const [register, { loading, error }] = useMutation<Variables>(REGISTER, {
+  const [register, { loading, error }] = useMutation(REGISTER, {
     onCompleted: data => {
       context.login(data.register);
       history.push("/");
